@@ -19,7 +19,7 @@ async function getweather() {
     try {
         let response = await fetch(apiUrl)
         if (!response.ok) {
-            // alert("City not found");
+            alert("City not found");
             return
         }
             let data = await response.json(); // yha jason format me convert kr rhe ahi 
@@ -53,8 +53,17 @@ document.addEventListener("DOMContentLoaded", () => {
 const searchBtn = document.getElementById('search-btn');
  // yha variable declear krege fir button pe click event lgyaeg
  searchBtn.addEventListener('click', function () {
-      if (document.getElementById('search-input').value.trim() === "") {
+     let inputVal = document.getElementById('search-input').value.trim();
+
+    // Empty check
+    if (inputVal === "") {
         alert("Please enter a city name!");
+        return;
+    }
+
+    // Number check (agar sirf number hai to alert de)
+    if (!isNaN(inputVal)) {
+        alert("City name cannot be a number!");
         return;
     }
     getweather();
