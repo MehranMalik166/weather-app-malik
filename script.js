@@ -19,7 +19,7 @@ async function getweather() {
     try {
         let response = await fetch(apiUrl)
         if (!response.ok) {
-            alert("City not found");
+            // alert("City not found");
             return
         }
             let data = await response.json(); // yha jason format me convert kr rhe ahi 
