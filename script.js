@@ -52,7 +52,8 @@ async function getweather() {
 document.addEventListener("DOMContentLoaded", () => {
 const searchBtn = document.getElementById('search-btn');
  // yha variable declear krege fir button pe click event lgyaeg
- searchBtn.addEventListener('click', function () {
+ searchBtn.addEventListener('click', function (e) {
+      e.preventDefault(); // prevent form default submit
      let inputVal = document.getElementById('search-input').value.trim();
 
     // Empty check
@@ -72,6 +73,7 @@ const searchBtn = document.getElementById('search-btn');
  //enter click pe search ke button ko click kr rhe ahi 
 document.getElementById('search-input').addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
+                e.preventDefault(); // prevent form default submit
                 searchBtn.click();
             }
  });
